@@ -25,8 +25,9 @@ public class Solution {
     }
 
     public static ListNode reverseList(ListNode head) {
-           // 1 -> 2 -> 3 -> 4 -> 5
-    // pr  // b   next
+                  // 1 -> 2 -> 3 -> 4 -> 5
+//start    // pr  // b   next
+                          //finish    // pr  // b   next
 
         ListNode prev = null;
         ListNode buffer = head;
