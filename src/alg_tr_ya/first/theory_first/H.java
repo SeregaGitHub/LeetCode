@@ -1,4 +1,4 @@
-package alg_tr_ya.first.theory;
+package alg_tr_ya.first.theory_first;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
