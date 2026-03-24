@@ -1,6 +1,7 @@
 package alg_tr_ya;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,11 +14,51 @@ public class Example {
         }
     }
 
-    private static List<Integer> readLine(BufferedReader reader) throws IOException {
+    private static List<Integer> readNumbers(BufferedReader reader) throws IOException {
         return Arrays.stream(reader.readLine().split(" "))
                 //.map(elem -> Integer.parseInt(elem))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
+    }
+
+    private static List<String> readStrings(BufferedReader reader) throws IOException {
+        return Arrays.stream(reader.readLine().split(" "))
+                .collect(Collectors.toList());
+    }
+
+    private static List<String> readLines(BufferedReader reader) throws IOException {
+        List<String> strings = new ArrayList<>();
+
+        String str;
+        while ((str = reader.readLine()) != null) {
+            if (str.isEmpty()) break;
+
+            // Speed best when -  String[] array = str.split(" ");
+            int firstSpace = str.indexOf(' ');
+            int secondSpace = str.indexOf(' ', firstSpace + 1);
+
+            String lastname = str.substring(0, firstSpace);
+            String product  = str.substring(firstSpace + 1, secondSpace);
+            long value = Long.parseLong(str.substring(secondSpace + 1));
+
+            strings.add(lastname);
+            strings.add(product);
+            strings.add(str.substring(secondSpace + 1));
+        }
+
+        return strings;
+    }
+
+    private static List<String> readString(BufferedReader reader) throws IOException {
+        List<String> strings = new ArrayList<>();
+
+        String str;
+        while ((str = reader.readLine()) != null) {
+            if (str.isEmpty()) break;
+            strings.add(str);
+        }
+
+        return strings;
     }
 
     private static List<Integer> readList(BufferedReader reader) throws IOException {
